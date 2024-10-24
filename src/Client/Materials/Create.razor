@@ -1,0 +1,31 @@
+﻿@page "/material/create"
+@attribute [Authorize(Roles = "Administrator")]
+<h1 class="title">Materials <small>Create</small></h1>
+<!-- Create.razor -->
+<!-- 2 EditForm  -->
+<EditForm Model="@model" OnValidSubmit="@SubmitForm"> 
+    <!-- 2 Validator -->
+    <FluentValidationValidator />
+    <!-- 2 Summary -->
+    <ValidationSummary/>
+    <div class="field">
+<label class="label">Name</label>
+<div class="control">
+    <!-- 2 (bind) -->
+    <InputText class="input" @bind-Value="model.Name" />
+</div>
+</div>
+
+<div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+        <!-- 2 (bind) -->
+        <InputTextArea rows="5" class="textarea" @bind-Value="model.Description" />
+    </div>
+</div>
+
+<div class="buttons">
+    <button class="button is-link is-fullwidth" type="submit">Create</button>
+    <a href="/" class="button is-link is-light is-fullwidth">Cancel</a>
+</div>
+</EditForm>
